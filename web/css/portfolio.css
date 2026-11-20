@@ -1,0 +1,42 @@
+/* Portfolio, Rent roll and Ledger (the property-management pages). */
+.ow-chart{padding:8px 10px 4px}
+.ow-ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.ow-ways>div{background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:11.5px;color:var(--tx-2);line-height:1.5}
+.ow-ways b{font:700 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--tx)}
+.ow-ways .btn{align-self:flex-start;margin-top:4px}
+@container (max-width:860px){.ow-ways{grid-template-columns:minmax(0,1fr)}}
+.ow-cmp{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));border-top:1px solid var(--line);font:500 11px var(--mono);font-variant-numeric:tabular-nums}
+.ow-cmp>*{padding:4px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.ow-cmp>.h{font:600 9px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);background:var(--panel-2)}
+.ow-cmp>.l{text-align:left;color:var(--tx-2);font-family:var(--sans)}
+.ow-cmp>:nth-last-child(-n+4){border-bottom:0}
+.lg-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.lg-act{display:flex;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center;flex-wrap:wrap}
+.lg-act .s{margin-left:auto;font:500 10.5px var(--mono);color:var(--mut)}
+.t td .tp{font:600 9px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.t td .tp.pay{color:var(--up)}.t td .tp.fee{color:var(--amber)}.t td .tp.cr{color:var(--acc)}
+.t td .btn{padding:1px 7px;font-size:10px}
+/* a table that scrolls sideways inside an auto-height panel keeps its full height (WebKit sizes a flex:1 scroller to 0) */
+.ow .tbl-wrap{flex:0 1 auto}
+.ow-hint{font-size:11px;color:var(--mut);margin-right:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:320px}
+.ow .t th,.ow .t td{padding-left:7px;padding-right:7px}
+.ow .t th:first-child,.ow .t td:first-child{padding-left:12px}
+.lg-memo{display:inline-block;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+.lg-memo.w{max-width:260px}
+#lg-ef{display:flex;align-items:center;gap:4px}
+.lg-memo.n{max-width:118px}
+.ow-fn{padding:5px 12px 7px;font-size:10.5px;color:var(--mut);border-top:1px solid var(--line)}
+.lg-memo.m2{max-width:min(300px,22vw)}
+.ph .s.lg-ls{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lg-memo.u{max-width:220px}
+/* headline strips stay on one row: the figures shrink with the page width instead of wrapping */
+.ow .kv{grid-template-columns:repeat(auto-fit,minmax(112px,1fr))}
+.ow .kv>div{padding-left:14px;padding-right:12px}
+.ow .kv b{font-size:clamp(16px,2.15cqi,22px)}
+.ow .kv.tight b{font-size:clamp(14px,1.7cqi,16px)}
+.ow .t{font-size:12.5px}
+/* narrow page: drop the columns whose figures are repeated elsewhere (deposit is in the strip, months = balance / rent) */
+@container (max-width:980px){
+  #rr-tbl .t th:nth-child(9),#rr-tbl .t td:nth-child(9),#lg-age .t th:nth-child(9),#lg-age .t td:nth-child(9){display:none}
+  .lg-memo.u{max-width:170px}
+}

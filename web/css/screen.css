@@ -1,0 +1,33 @@
+/* Screen page: ranked opportunities, weight editor, cap-vs-price scatter. */
+.sc-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;flex:none}
+@container (max-width:760px){.sc-top{grid-template-columns:minmax(0,1fr)}}
+.sc-tblp{flex:1;min-height:200px}
+.sc-tblp .tbl-host{flex:1}
+.sc-fl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 2px;padding:6px 10px}
+.sc-fl .r{margin-left:auto;display:inline-flex;gap:2px;align-items:center}
+
+/* weight editor */
+.sc-w{display:grid;grid-template-columns:126px minmax(60px,1fr) 44px 40px;gap:1px 10px;align-items:center;padding:8px 12px 6px}
+.sc-w .h{font:600 9px var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--mut)}
+.sc-w .h.n{text-align:right}
+.sc-w label{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-w label small{display:block;font:500 9.5px var(--mono);color:var(--faint);margin-top:-1px}
+.sc-w input[type=range]{width:100%;accent-color:var(--gold);margin:0}
+.sc-w input[type=text]{width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:4px;padding:2px 5px;font:500 11.5px var(--mono);color:var(--tx);text-align:right;outline:none}
+.sc-w input[type=text]:focus{border-color:var(--acc)}
+.sc-w .sh{font:500 11px var(--mono);text-align:right;color:var(--tx-2);font-variant-numeric:tabular-nums}
+.sc-wf{white-space:nowrap;overflow:hidden;display:flex;align-items:center;gap:6px;padding:6px 12px 8px;border-top:1px solid var(--line);font-size:11px;color:var(--mut)}
+.sc-wf .r{margin-left:auto;display:flex;gap:4px}
+.sc-sc{padding:6px 10px 2px}
+
+/* ranked table */
+.t.sc-t td,.t.sc-t th{padding-left:5px;padding-right:5px}
+.t.sc-t td.fx,.t.sc-t th.fx{padding-left:3px;padding-right:3px;min-width:34px}
+.t.sc-t thead tr.sc-grp th{position:static;cursor:default;font-size:8.5px;color:var(--faint);border-bottom:0;padding-top:4px;padding-bottom:0}
+.t.sc-t thead tr.sc-grp th.g{border-bottom:1px solid var(--line-2)}
+.sc-addr{display:inline-block;max-width:112px;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom;font-family:var(--sans);font-weight:600}
+.sc-zip{color:var(--mut);margin-left:6px}
+.sc-rk{color:var(--mut)}
+.sc-top[hidden]{display:none}
+.sc-wf>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.sc-wf .r{flex:none}

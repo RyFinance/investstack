@@ -1,0 +1,12 @@
+dist/
+build/
+.venv/
+__pycache__/
+*.pyc
+tools/snap
+*.db
+data/
+.DS_Store
+
+.claude/
+.valora-ci/

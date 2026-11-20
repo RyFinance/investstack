@@ -1,0 +1,39 @@
+/* Ticket (right panel) additions. Base classes (.tk-h .tk-sec .row3 .verdict) live in style.css. */
+.tk-top{display:flex;justify-content:space-between;align-items:center;padding:6px 16px;border-bottom:1px solid var(--line);background:var(--panel-2);font:700 9px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.tk-top button{font:600 10px var(--sans);letter-spacing:.04em;text-transform:none;color:var(--mut)}.tk-top button:hover{color:var(--tx)}
+.tk-h .sym{align-items:center!important}
+.tk-hr{margin-left:auto;display:inline-flex}
+.tk-px{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.tk-px>div{padding:10px 10px 9px 16px;min-width:0}.tk-px>div+div{border-left:1px solid var(--line);padding-left:10px}
+.tk-px span{display:block;font:700 8.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.tk-px b{display:block;font:600 17px/1.2 var(--serif);white-space:nowrap}
+.tk-px i{display:block;font:normal 10.5px var(--sans);color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tk-prov{padding:7px 16px 8px;border-bottom:1px solid var(--line);font:500 11px var(--sans);line-height:1.6}
+.tk-prov .prov{white-space:normal}
+.tk-mute{font-size:11.5px;color:var(--mut);line-height:1.45;margin-top:7px}
+.tk-ln>div{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:12.5px;border-bottom:1px solid var(--line)}.tk-ln>div:last-child{border-bottom:0}
+.tk-ln span{color:var(--tx-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tk-ln b{font:600 12.5px var(--sans);white-space:nowrap}
+.tk-bars>div{display:grid;grid-template-columns:1fr 104px 26px;gap:8px;align-items:center;padding:2px 0;font-size:12px;color:var(--tx-2)}
+.tk-bars b{font:600 12px var(--sans);text-align:right;color:var(--tx)}
+.tk-acts{display:flex;flex-wrap:wrap;gap:6px}
+.tk-acts .btn{flex:1 1 auto;padding:6px 9px;text-align:center}
+.tk-last{border-bottom:0;padding-top:14px;padding-bottom:16px}
+.tk-sv{height:190px;border-radius:3px;margin-bottom:8px}
+.tk-miss{display:flex;flex-direction:column;gap:1px;padding:3px 0;font-size:12px}
+.tk-miss b{color:var(--amber);font-weight:600}.tk-miss span{color:var(--tx-2)}
+.tk-chk .chk{margin:0 -16px}
+.tk-ev .ev{margin:0 -16px;border-bottom:0;padding:3px 16px;color:var(--tx-2)}
+.tk-aging{margin:0 -16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tk-t{width:100%;border-collapse:collapse;font:500 12px var(--sans);font-variant-numeric:tabular-nums}
+.tk-t td{padding:3px 0;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.tk-t td.l{text-align:left;padding-left:8px;color:var(--tx-2);font-family:var(--sans)}
+.tk-t td:first-child{text-align:left;color:var(--mut)}
+.tk-spk>div{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 0;font-size:12px;color:var(--tx-2)}
+.tk-desc{font:500 13px var(--sans);margin-top:10px;word-break:break-word}
+.tk-steps{margin:0;padding:0 0 0 18px;font-size:12.5px}
+.tk-steps li{padding:3px 0 5px;color:var(--mut)}
+.tk-steps li b{display:block;color:var(--tx);font-weight:600}
+.tk-steps li span{display:block;font-size:11.5px;line-height:1.4}
+.verdict a.link{color:var(--acc)}
+.tk-site,.tk-site.map{min-height:0;height:190px;border:1px solid var(--line);border-radius:3px;margin-bottom:4px;overflow:hidden;position:relative}
+.tk-cap{margin:0 0 8px;font-size:10.5px}

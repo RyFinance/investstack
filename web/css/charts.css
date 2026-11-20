@@ -1,0 +1,55 @@
+/* Chart styles for web/js/charts.js. Colours only from the theme tokens in style.css. */
+.ch{position:relative;width:100%;min-width:0}
+.ch.ch-fill{height:100%;display:flex;flex-direction:column}
+.ch-fill .ch-plot{flex:1;min-height:0}
+.ch-plot{position:relative;width:100%}
+.ch-svg{display:block;overflow:visible}
+.ch-svg.ch-click{cursor:pointer}
+.ch-svg text{font:500 10px var(--mono);fill:var(--mut);font-variant-numeric:tabular-nums}
+.ch-grid{stroke:var(--line);stroke-width:1;shape-rendering:crispEdges}
+.ch-axis{stroke:var(--line-2);stroke-width:1;shape-rendering:crispEdges}
+.ch-zero{stroke:var(--mut);stroke-width:1;stroke-dasharray:2 3;shape-rendering:crispEdges}
+.ch-mark{stroke-width:1;shape-rendering:crispEdges}
+.ch-now{stroke:var(--line-2);stroke-width:1;stroke-dasharray:2 3}
+.ch-last{stroke-width:1;stroke-dasharray:2 3;opacity:.8}
+.ch-cross{stroke:var(--mut);stroke-width:1;stroke-dasharray:3 3;shape-rendering:crispEdges;pointer-events:none}
+.ch-ln{fill:none;stroke-linejoin:round;stroke-linecap:round}
+.ch-svg .ch-tk{fill:var(--mut)}
+.ch-svg .ch-cat{fill:var(--tx-2)}
+.ch-svg .ch-axl{fill:var(--faint);font:600 9px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.ch-svg .ch-ml{font-size:9px}
+.ch-svg .ch-pl{fill:var(--tx-2);font-size:9.5px;font-weight:600}
+.ch-svg .ch-ct{fill:var(--tx);font-size:9.5px;pointer-events:none;paint-order:stroke;stroke:color-mix(in srgb,var(--panel) 55%,transparent);stroke-width:2px}
+.ch-svg .ch-tag{fill:var(--panel);font-weight:600}
+.ch-ytag{fill:var(--raise);stroke:var(--line-2)}
+.ch-svg .ch-ytx{fill:var(--tx)}
+.ch-band{fill:var(--tx);opacity:0;transition:opacity .1s}
+.ch-band:hover{opacity:.04}
+.ch-nil{fill:var(--panel-2)}
+.ch-cell-on{fill:none;stroke:var(--tx);stroke-width:1.5;pointer-events:none}
+.ch-vol{opacity:.35}
+.ch-cd{stroke-width:1;shape-rendering:crispEdges}
+.ch-pt{stroke:var(--panel);stroke-width:1;fill-opacity:.9}
+.ch-ring{fill:none;stroke-width:1.5}
+.ch-dot{stroke:var(--panel);stroke-width:1.5}
+.ch-diag{stroke:var(--line-2);stroke-width:1;stroke-dasharray:4 3}
+.ch-be{fill:var(--amber);stroke:var(--panel);stroke-width:1.5}
+.ch-hov{pointer-events:none}
+.ch-empty{display:flex;align-items:center;justify-content:center;color:var(--faint);font:500 11px var(--sans)}
+.ch-leg{display:flex;flex-wrap:wrap;gap:4px 14px;padding:0 4px 6px;font:500 10px var(--mono);color:var(--mut)}
+.ch-leg[hidden]{display:none}
+.ch-lg{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.ch-lg i{display:inline-block;width:12px;height:0;border-top:2px solid currentColor}
+.ch-lg i.dsh{border-top-style:dashed}
+.ch-lg i.blk{width:9px;height:9px;border:0;background:currentColor;border-radius:2px;opacity:.75}
+.ch-tip{position:absolute;left:0;top:0;z-index:5;pointer-events:none;background:var(--raise);border:1px solid var(--line-2);border-radius:5px;padding:6px 8px;box-shadow:0 8px 24px rgba(0,0,0,.35);font:500 10.5px var(--mono);color:var(--tx);min-width:120px;white-space:nowrap}
+.ch-tip[hidden]{display:none}
+.ch-th{font:600 10px var(--mono);color:var(--tx-2);margin-bottom:4px}
+.ch-tr{display:flex;align-items:center;gap:7px;line-height:1.55}
+.ch-tr i{display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--mut);flex:none}
+.ch-tr span{color:var(--mut);flex:1}
+.ch-tr b{font-weight:600;margin-left:10px}
+.ch-spark{display:inline-block;vertical-align:middle;overflow:visible}
+.ch-bar{display:inline-block;position:relative;vertical-align:middle;background:var(--raise);border-radius:2px;overflow:hidden}
+.ch-bar i{position:absolute;top:0;bottom:0;border-radius:2px;opacity:.85}
+.ch-bar u{position:absolute;top:-1px;bottom:-1px;width:1px;background:var(--mut)}

@@ -1,0 +1,44 @@
+/* Search page: map + listings table. Stacked on normal widths, side by side on very wide windows. */
+.sr-body{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.page.fill>.sr-body{margin-top:10px}
+.sr-mapp{flex:0 0 38%;min-height:240px}
+.sr-tblp{flex:1;min-height:190px}
+.sr-map.map{flex:1;min-height:0}
+@container (min-width:1250px){
+  .sr-body{flex-direction:row}
+  .sr-mapp{flex:0 0 42%;min-height:0}
+  .sr-tblp{min-height:0}
+}
+.sr-tblp .tbl-host{flex:1}
+
+/* the selected listing, under the map */
+.sr-selbar{flex:none;display:flex;align-items:center;gap:10px;min-height:34px;padding:4px 10px 4px 12px;border-top:1px solid var(--line);font:500 11px var(--mono);white-space:nowrap;overflow:hidden}
+.sr-selbar .a{font:600 11.5px var(--sans);overflow:hidden;text-overflow:ellipsis;min-width:60px}
+.sr-selbar .f{display:flex;gap:12px;color:var(--tx-2);overflow:hidden}
+.sr-selbar .f span{color:var(--faint);margin-right:4px;font:600 9px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.sr-selbar .r{margin-left:auto;display:flex;gap:4px;flex:none}
+.sr-selbar.none{color:var(--mut);font-family:var(--sans)}
+
+/* table cells */
+.sr-addr{display:inline-block;max-width:124px;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom;font-family:var(--sans);font-weight:600}
+.sr-zip{color:var(--mut);margin-left:6px}
+.sr-ty{color:var(--mut);font-size:10px;margin-left:6px}
+.t.sr-t td,.t.sr-t th{padding-left:5px;padding-right:5px}
+.t.sr-t .sc i{width:34px}
+td .src-dot{margin:0 0 0 5px}
+.sr-notes{border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.sr-notes .strip:last-child{border-bottom:0}
+
+/* filter row */
+.sr-fl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 2px;padding:6px 10px}
+.sr-sv{display:inline-flex;align-items:center;gap:2px;margin-left:auto}
+
+/* map / street view switch in the map panel */
+.sr-pane{display:inline-flex;gap:2px}
+.sr-pane .chip{padding:2px 9px;font-size:11px}
+.sr-map[hidden],.sr-street[hidden]{display:none!important}
+.sr-street{flex:1;min-height:0;display:flex;overflow:hidden;background:var(--panel-2)}
+.sr-svf.sv{flex:1;height:auto;min-height:0}
+.sr-svm{margin:auto;max-width:440px;padding:24px 20px;text-align:center;display:flex;flex-direction:column;gap:6px;font-size:11.5px;color:var(--tx-2);line-height:1.5}
+.sr-svm b{font:600 19px/1.2 var(--serif);color:var(--tx)}
+.sr-svm .r{display:flex;gap:6px;justify-content:center;margin-top:8px;flex-wrap:wrap}

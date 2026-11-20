@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InvestStack</title>
+<meta name="description" content="Commercial property intelligence: discover, underwrite, model development, run the pipeline and manage the portfolio.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/charts.css">
+<link rel="stylesheet" href="css/valora.css">
+</head>
+<body>
+<script>try{if(localStorage.getItem("va_theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}if(location.search.indexOf("app=1")>=0)document.documentElement.classList.add("in-app")</script>
+<div class="term">
+  <header class="hdr">
+    <button class="brand" type="button" data-go="overview" aria-label="InvestStack overview"><img src="favicon.png" alt="" width="25" height="25">InvestStack</button>
+    <nav class="tabs" id="tabs" aria-label="Pages"></nav>
+    <div class="cmd"><span class="cmd-k">›</span><input id="cmd" spellcheck="false" autocomplete="off" placeholder="Search address, ZIP or page" aria-label="Search"><kbd>/</kbd></div>
+    <div class="hdr-r">
+      <button class="ws-tag" id="ws-badge" title="Workspace settings"><i></i><span id="ws-txt"></span></button>
+      <button class="hbtn pri" id="add" title="Look up an address (A)">+ Address</button>
+      <button class="hbtn icon" id="theme" title="Dark or light (T)">☀</button>
+      <span id="ws" hidden></span><div id="side" hidden></div>
+    </div>
+  </header>
+  <div class="bar">
+    <h1 class="ptitle" id="ptitle"></h1>
+    <div class="sub" id="sub"></div>
+    <div class="bar-r" id="bar-r"></div>
+  </div>
+  <main class="main" id="main"></main>
+  <aside class="ticket" id="ticket" aria-label="Detail"></aside>
+  <footer class="foot" id="foot"></footer>
+</div>
+<div class="pal-bg" id="pal" hidden><div class="pal"><input id="pal-in" spellcheck="false" autocomplete="off" placeholder="Jump to a page, a property or a ZIP, or run an action"><div id="pal-list"></div></div></div>
+<div class="pull" id="pull">Pull for commands</div>
+<div class="drop" id="drop" hidden><div><b>Drop files to import</b><span>Bank CSV exports, leases, mortgage statements, listing brochures</span></div></div>
+<div id="modal" class="pal-bg" hidden></div>
+<div id="toast" hidden></div>
+<script type="module" src="js/shell.js"></script>
+</body>
+</html>

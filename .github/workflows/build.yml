@@ -1,0 +1,87 @@
+# Desktop builds: InvestStack.app (zip + dmg) on macOS, InvestStack-Setup.exe on Windows.
+# Runs on a "v*" tag push (and attaches the files to a GitHub release) or by hand from the Actions tab.
+name: build
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write          # needed to create the release on a tag
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      VALORA_HOME: ${{ github.workspace }}/.valora-ci     # tests and the build never touch a real data folder
+      VALORA_VERSION: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '0.1.0' }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Build with PyInstaller
+        run: python tools/make_app.py
+
+      - name: Package (macOS zip + dmg)
+        if: runner.os == 'macOS'
+        run: |
+          V="${VALORA_VERSION#v}"
+          cd dist
+          ditto -c -k --sequesterRsrc --keepParent InvestStack.app "InvestStack-${V}-mac.zip"
+          mkdir -p dmg && cp -R InvestStack.app dmg/ && ln -s /Applications dmg/Applications
+          hdiutil create -volname InvestStack -srcfolder dmg -ov -format UDZO "InvestStack-${V}-mac.dmg"
+          rm -rf dmg
+
+      - name: Install Inno Setup
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: choco install innosetup --no-progress -y
+
+      - name: Build installer (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $v = "$env:VALORA_VERSION".TrimStart("v")
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" "/DAppVersion=$v" desktop\installer.iss
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: valora-${{ runner.os }}
+          if-no-files-found: error
+          path: |
+            dist/*.zip
+            dist/*.dmg
+            dist/InvestStack-Setup-*.exe
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.zip
+            dist/*.dmg
+            dist/InvestStack-Setup-*.exe
